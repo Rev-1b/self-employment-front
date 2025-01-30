@@ -1,0 +1,40 @@
+.auth-title {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.auth-input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 500px;
+}
+
+.auth-reg-link {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 400;
+    color: #2618B1;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+    &:hover {
+        color: #022446;
+        transform: scale(1.04);
+    }
+}
+
+.forgot-password-link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2618B1;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+    &:hover {
+        color: #022446;
+        transform: scale(1.04);
+    }
+}

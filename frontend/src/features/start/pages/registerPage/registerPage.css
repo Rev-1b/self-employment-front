@@ -1,0 +1,12 @@
+.accept-service-link,
+.accept-policy-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.accept-service-link:hover,
+.accept-policy-link:hover {
+    color: #2618B1;
+}
