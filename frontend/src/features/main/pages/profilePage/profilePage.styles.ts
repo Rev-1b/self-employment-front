@@ -2,9 +2,17 @@ import { SxProps, Theme } from '@mui/material';
 
 export const styles: Record<string, SxProps<Theme>> = {
     container: {
-        marginTop: '50px',
         marginLeft: '100px',
-        maxWidth: '1200px',
+        maxWidth: '1300px',
+    },
+    profileTitle: {
+        paddingBottom: '8px',
+        maxWidth: '375px',
+        fontSize: '32px',
+        textAlign: 'center',
+        fontWeight: '500',
+        color: '#000',
+        borderBottom: '2px solid #3217ca'
     },
     inputGroup: {
         display: 'grid',
@@ -22,7 +30,7 @@ export const styles: Record<string, SxProps<Theme>> = {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '16px',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#FEFEFF',
         borderRadius: '4px',
         cursor: 'pointer',
         marginBottom: '16px',

@@ -1,65 +1,35 @@
 export const styles = {
     container: {
-        padding: '24px',
-        height: '100%',
-        overflow: 'auto'
+        marginLeft: '100px',
+        maxWidth: '1300px',
     },
-    userName: {
-        marginBottom: '24px'
+
+    mainGrid: {
+        display: 'grid',
+        gridTemplateColumns: '60% 40%',
+        gap: '24px',
     },
-    buttonGroup: {
-        display: 'flex',
-        gap: '16px',
-        marginBottom: '32px'
-    },
-    button: {
-        borderRadius: '20px',
-        textTransform: 'none'
-    },
-    profitSection: {
-        marginBottom: '32px'
-    },
-    profitAmount: {
-        color: '#000',
-        fontWeight: 'bold'
-    },
-    chartSection: {
-        marginBottom: '32px'
-    },
+
     contentSection: {
         display: 'flex',
-        gap: '24px'
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     },
-    documentsSection: {
-        flex: 1,
-        padding: '24px'
+
+    midTitle: {
+        marginBottom: '8px',
     },
-    statisticsSection: {
-        flex: 1,
-        padding: '24px'
-    },
-    table: {
-        width: '100%',
-        borderCollapse: 'collapse',
-        '& th, & td': {
-            padding: '12px',
-            textAlign: 'left',
-            borderBottom: '1px solid #eee'
+
+    extendLink: {
+        color: '#333',
+        textDecoration: 'none',
+        alignSelf: 'flex-end',
+        cursor: 'pointer',
+        transition: 'color 0.2s ease',
+        marginTop: '8px',
+        '&:hover': {
+            color: '#1D1D93',
+            textDecoration: 'none',
         }
-    },
-    statsGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '16px',
-        marginTop: '16px'
-    },
-    statItem: (color: string) => ({
-        backgroundColor: `${color}15`,
-        padding: '16px',
-        borderRadius: '8px',
-        '& h4': {
-            marginTop: '8px',
-            color: color
-        }
-    })
+    }
 };

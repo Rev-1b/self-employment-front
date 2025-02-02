@@ -9,7 +9,7 @@ export const styles = {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '16px',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#FEFEFF',
         borderRadius: '4px',
         cursor: 'pointer',
         marginBottom: '16px',

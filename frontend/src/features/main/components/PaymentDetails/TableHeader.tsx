@@ -22,5 +22,5 @@ export const TableHeader: FC = () => {
                 </IconButton>
             </Box>
         </>
-    )
-}
+    );
+};

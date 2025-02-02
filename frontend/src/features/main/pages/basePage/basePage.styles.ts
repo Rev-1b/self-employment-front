@@ -79,7 +79,7 @@ export const styles = {
     },
     mainContent: {
         flexGrow: 1,
-        background: "#F5F5F7",
+        background: "#FEFEFF",
         padding: "32px"
     }
 };

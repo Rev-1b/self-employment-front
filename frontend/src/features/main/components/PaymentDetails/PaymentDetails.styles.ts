@@ -6,7 +6,7 @@ export const styles = {
         color: '#333',
     },
     container: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#FEFEFF',
         borderRadius: '4px',
         mb: 3,
     },
