@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { FC } from "react";
 import { styles } from "./PaymentDetails.styles";
 
-import SpreadIcon from '../../../../assets/tableImages/spreadIcon.svg'
+import SpreadIcon from '../../../../../../assets/tableImages/spreadIcon.svg'
 
 
 export const TableHeader: FC = () => {

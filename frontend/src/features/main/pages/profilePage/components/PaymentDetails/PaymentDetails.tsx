@@ -1,8 +1,8 @@
 import { Box, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import { FC, useState } from "react";
 
-import EditIcon from '../../../../assets/tableImages/updateIcon.svg';
-import DeleteIcon from '../../../../assets/tableImages/deleteIcon.svg';
+import EditIcon from '../../../../../../assets/tableImages/updateIcon.svg';
+import DeleteIcon from '../../../../../../assets/tableImages/deleteIcon.svg';
 
 import { AddPaymentForm } from './AddPaymentForm.tsx';
 import { TableHeader } from './TableHeader.tsx'

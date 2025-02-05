@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Box, TextField } from "@mui/material";
 import { styles } from "./AccountingInfo.styles.ts";
 
-import { MidButton } from "../MidButton/MidButton.tsx";
+import { MidButton } from "../../../../components/MidButton/MidButton.tsx";
 import { PassportData } from "../PassportData/PassportData.tsx";
 import { PaymentDetails } from "../PaymentDetails/PaymentDetails.tsx";
 

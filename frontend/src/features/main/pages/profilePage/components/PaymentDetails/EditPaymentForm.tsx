@@ -1,6 +1,6 @@
-import { Box, IconButton, TextField } from "@mui/material";
+import { IconButton, TextField } from "@mui/material";
 import { FC } from "react";
-import AddIcon from '../../../../assets/tableImages/addIcon.svg';
+import AddIcon from '../../../../../../assets/tableImages/addIcon.svg';
 import { PaymentRecord } from './constants';
 import { styles } from "./PaymentDetails.styles";
 

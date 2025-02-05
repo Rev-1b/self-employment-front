@@ -14,7 +14,7 @@ interface HeadSectionProps {
 const HeadSection: FC<HeadSectionProps> = ({ userName, profit }) => {
     return (
         <>
-            <Typography variant="h4" sx={{ marginBottom: '24px' }}>
+            <Typography variant="h4" sx={{ marginBottom: '24px', padding: '20px' }}>
                 {userName}
             </Typography>
 

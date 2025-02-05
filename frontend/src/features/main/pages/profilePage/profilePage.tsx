@@ -2,19 +2,22 @@ import { FC } from "react";
 import { Box } from "@mui/material";
 
 import { MidButton } from "../../components/MidButton/MidButton.tsx";
-import { styles } from "./profilePage.styles.ts";
+import { styles } from "./ProfilePage.styles.ts";
 
-import { PersonalInfo } from "../../components/PersonalInfo/PersonalInfo.tsx";
-import { AccountingInfo } from '../../components/AccountingInfo/AccountingInfo.tsx'
+import ContentBox from "../../components/ContentBox/ContentBox.tsx";
+import HeadNavButton from "../../components/HeadNavButton/HeadNavButton.tsx";
+import { PersonalInfo } from "./components/PersonalInfo/PersonalInfo.tsx";
+import { AccountingInfo } from './components/AccountingInfo/AccountingInfo.tsx'
 
 
 const ProfilePage: FC = () => {
     return (
-        <Box sx={styles.container}>
-            <Box sx={styles.profileTitle}>
-                Профиль
-            </Box>
-            
+        <ContentBox>
+            <HeadNavButton
+                label="Профиль"
+                state="active" 
+            />
+
             <Box>
                 <PersonalInfo />
                 <AccountingInfo />
@@ -28,7 +31,7 @@ const ProfilePage: FC = () => {
                     </MidButton>
                 </Box>
             </Box>
-        </Box>
+        </ContentBox>
     );
 };
 

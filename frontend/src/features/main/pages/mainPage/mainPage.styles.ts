@@ -1,9 +1,4 @@
 export const styles = {
-    container: {
-        marginLeft: '100px',
-        maxWidth: '1300px',
-    },
-
     mainGrid: {
         display: 'grid',
         gridTemplateColumns: '60% 40%',

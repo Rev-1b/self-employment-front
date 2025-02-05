@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Box } from "@mui/material";
 import { useNavigate, Outlet } from "react-router-dom";
 import "./basePage.css";
-import { styles } from "./basePage.styles.ts";
+import { styles } from "./BasePage.styles.ts";
 
 import profile from "../../../../assets/sidebarImages/profile.svg";
 import customers from "../../../../assets/sidebarImages/customers.svg";
@@ -21,7 +21,7 @@ interface IAsideIcon {
 const asideIconsRoutes: IAsideIcon[] = [
     { src: profile, alt: "Profile", history: "profile" },
     { src: home, alt: "Home", history: "main" },
-    { src: documents, alt: "Documents", history: "documents" },
+    { src: documents, alt: "Documents", history: "documents/agreements" },
     { src: customers, alt: "Customers", history: "customers" },
     { src: payments, alt: "Payments", history: "payments" },
 ];

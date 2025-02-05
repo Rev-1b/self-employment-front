@@ -1,7 +1,9 @@
 import { Box, Typography, Link } from '@mui/material';
 import { FC } from 'react';
-import { styles } from './mainPage.styles';
+import { styles } from './MainPage.styles.ts';
 
+import ContentBox from '../../components/ContentBox/ContentBox.tsx';
+import CommonTable from '../../components/CommonTable/CommonTable.tsx';
 import HeadSection from './components/HeadSection/HeadSection.tsx';
 import Graph from './components/Graph/Graph.tsx';
 import BarChartGraph from './components/BarChartGraph/BarChartGraph.tsx';
@@ -15,7 +17,7 @@ const MainPage: FC = () => {
     const profit = 233300
 
     return (
-        <Box sx={styles.container}>
+        <ContentBox>
             <HeadSection userName={userName} profit={profit} />
 
             <Box sx={styles.mainGrid}>
@@ -27,15 +29,17 @@ const MainPage: FC = () => {
                 </Box>
 
                 <Box sx={styles.contentSection}>
-                    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography variant="h6" sx={styles.midTitle}>
                             Последние измененные документы
                         </Typography>
+
                         <HistoryTable />
+
                         <Link sx={styles.extendLink}>Смотреть подробнее...</Link>
                     </Box>
 
-                    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography variant="h6" sx={styles.midTitle}>
                             Общее количество
                         </Typography>
@@ -44,7 +48,7 @@ const MainPage: FC = () => {
                     </Box>
                 </Box>
             </Box>
-        </Box>
+        </ContentBox>
     );
 };
 

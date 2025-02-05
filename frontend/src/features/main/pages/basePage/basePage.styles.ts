@@ -80,6 +80,6 @@ export const styles = {
     mainContent: {
         flexGrow: 1,
         background: "#FEFEFF",
-        padding: "32px"
+        padding: "8px"
     }
 };

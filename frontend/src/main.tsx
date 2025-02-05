@@ -7,9 +7,11 @@ import CorePage from './features/start/pages/corePage/corePage.tsx'
 import AuthPage from './features/start/pages/authPage/authPage.tsx'
 import RegisterPage from './features/start/pages/registerPage/registerPage.tsx'
 import PassRecoveryPage from './features/start/pages/passRecoveryPage/passRecoveryPage.tsx'
-import BasePage from './features/main/pages/basePage/basePage.tsx'
-import ProfilePage from './features/main/pages/profilePage/profilePage.tsx'
-import MainPage from './features/main/pages/mainPage/mainPage.tsx'
+import BasePage from './features/main/pages/BasePage/BasePage.tsx'
+import ProfilePage from './features/main/pages/profilePage/ProfilePage.tsx'
+import MainPage from './features/main/pages/mainPage/MainPage.tsx'
+import AgrTempHistBasePage from './features/main/pages/AgrTempHistBasePage/AgrTempHistBasePage.tsx'
+import AgrListPage from './features/main/pages/AgrListPage/AgrListPage.tsx'
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Failed to find the root element');
@@ -38,12 +40,22 @@ const router = createBrowserRouter([
     element: <BasePage />,
     children: [
       {
-        path: '/base/profile',
+        path: 'profile/',
         element: <ProfilePage />,
       },
       {
-        path: '/base/main/',
+        path: 'main/',
         element: <MainPage />,
+      },
+      {
+        path: 'documents/',
+        element: <AgrTempHistBasePage />,
+        children: [
+          {
+            path: 'agreements/',
+            element: <AgrListPage />,
+          }
+        ]
       }
     ]
   }

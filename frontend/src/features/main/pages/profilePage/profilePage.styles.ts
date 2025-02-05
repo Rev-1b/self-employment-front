@@ -1,10 +1,6 @@
 import { SxProps, Theme } from '@mui/material';
 
 export const styles: Record<string, SxProps<Theme>> = {
-    container: {
-        marginLeft: '100px',
-        maxWidth: '1300px',
-    },
     profileTitle: {
         paddingBottom: '8px',
         maxWidth: '375px',
