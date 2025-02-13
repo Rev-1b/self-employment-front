@@ -6,15 +6,16 @@ export const styles = {
 
     collapsibleHeader: {
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '16px',
+        gap: '12px',
+        padding: '16px 0',
         backgroundColor: '#FEFEFF',
         borderRadius: '4px',
         cursor: 'pointer',
         marginBottom: '16px',
+        transition: 'background-color 0.2s ease',
         '&:hover': {
-            backgroundColor: '#eeeeee'
+            backgroundColor: '#F7F7F8'
         }
     },
 
@@ -22,7 +23,16 @@ export const styles = {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: '24px',
-        padding: '24px 0',
+        padding: 0,
+        overflow: 'hidden',
+        maxHeight: 0,
+        opacity: 0,
+        transition: 'all 0.3s ease-out',
+        '&.expanded': {
+            padding: '24px 0',
+            maxHeight: '2000px',
+            opacity: 1
+        }
     },
 
     expandIcon: {
@@ -30,11 +40,10 @@ export const styles = {
         fontSize: '12px',
         transition: 'transform 0.3s ease'
     },
-    
+
     formDescription: {
         fontSize: '20px',
         fontWeight: '600',
         color: '#333',
-        margin: '40px auto 20px auto'
     }
 }

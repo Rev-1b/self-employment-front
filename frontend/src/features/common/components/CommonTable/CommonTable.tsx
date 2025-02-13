@@ -6,7 +6,6 @@ import { styles } from './CommonTable.styles';
 interface TableData {
     id: string | number; // уникальный идентификатор для key в map
     [key: string]: any; // допускаем любые поля в данных
-    actions?: ReactNode; // Добавляем опциональное поле для компонента с действиями
 }
 
 interface CommonTableProps {
@@ -26,7 +25,7 @@ const CommonTable: FC<CommonTableProps> = ({
     // Создаем общие стили для сетки, которые будут использоваться и в header, и в строках
     const gridStyles = {
         display: 'grid',
-        gridTemplateColumns: { gridTemplateColumns }, //Проблемное место, нужно передавать не объект а строку
+        gridTemplateColumns: {gridTemplateColumns}, //Проблемное место, нужно передавать не объект а строку
         gap: '8px',
         padding: '12px',
         alignItems: 'center',
@@ -58,9 +57,9 @@ const CommonTable: FC<CommonTableProps> = ({
                             backgroundColor: rowIndex % 2 === 1 ? '#fff' : '#F8F8F8',
                         }}
                     >
-                        {/* Преобразуем объект записи в массив значений, исключая id и actions */}
+                        {/* Преобразуем объект записи в массив значений, исключая id */}
                         {Object.entries(record)
-                            .filter(([key]) => !['id', 'actions'].includes(key))
+                            .filter(([key]) => key !== 'id')
                             .map(([_, value], cellIndex) => (
                                 <Box
                                     key={cellIndex}
@@ -69,11 +68,6 @@ const CommonTable: FC<CommonTableProps> = ({
                                     {value}
                                 </Box>
                             ))}
-                        {record.actions && (
-                            <Box component={'span'}>
-                                {record.actions}
-                            </Box>
-                        )}
                     </Box>
                 ))}
             </Box>

@@ -1,4 +1,6 @@
-export const styles = {
+import { SxProps, Theme } from "@mui/material";
+
+export const styles: Record<string, SxProps<Theme>> = {
     container: {
         display: "flex",
         minHeight: "100vh"
@@ -18,6 +20,15 @@ export const styles = {
         height: "100%",
         padding: "24px 0",
         alignItems: "center"
+    },
+    sidebarIcon: {
+        width: "60px",
+        height: "60px",
+        cursor: "pointer",
+        transition: "opacity 0.2s ease",
+        "&:hover": {
+            opacity: 0.8
+        }
     },
     sidebarMainIcons: {
         display: "flex",
@@ -59,6 +70,31 @@ export const styles = {
         justifyContent: "center",
         position: "relative"
     },
+    searchInput: {
+        border: "none",
+        background: "rgba(255, 255, 255, 0.1)",
+        borderRadius: "8px",
+        padding: "0 24px",
+        width: "720px",
+        height: "56px",
+        outline: "none",
+        color: "#FFFFFF",
+        fontSize: "16px",
+        transition: "background 0.2s ease",
+        "& .MuiInputBase-input": {
+            color: "#FFFFFF",
+        },
+        "& .MuiInputBase-input::placeholder": {
+            color: "rgba(255, 255, 255, 0.5)",
+            opacity: 1
+        },
+        "&:hover": {
+            background: "rgba(255, 255, 255, 0.15)"
+        },
+        "&.Mui-focused": {
+            background: "rgba(255, 255, 255, 0.15)"
+        }
+    },
     rightControls: {
         display: "flex",
         gap: "16px",
@@ -81,5 +117,5 @@ export const styles = {
         flexGrow: 1,
         background: "#FEFEFF",
         padding: "8px"
-    }
+    },
 };

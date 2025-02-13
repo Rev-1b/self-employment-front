@@ -1,4 +1,7 @@
-export const styles = {
+import { SxProps, Theme } from "@mui/material";
+
+
+export const styles: Record<string, SxProps<Theme>> = {
     addButton: {
         display: 'flex',
         alignItems: 'center',
@@ -13,5 +16,3 @@ export const styles = {
         }
     },
 };
-
-//'1.5fr repeat(3, 1fr) 1.5fr repeat(3, 0.4fr) 1fr 0.3fr'

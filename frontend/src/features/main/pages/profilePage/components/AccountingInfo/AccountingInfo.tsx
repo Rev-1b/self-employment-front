@@ -28,20 +28,25 @@ export const AccountingInfo: FC = () => {
                 </Box>
             </Box>
 
+            <Box
+                sx={{
+                    ...styles.collapsibleContent,
+                    ...(isExpanded && { '&.expanded': styles.collapsibleContent['&.expanded'] })
+                }}
+            >
+                <TextField
+                    label="ИНН"
+                    variant="standard"
+                    fullWidth
+                />
+                <TextField
+                    label="Адрес регистрации"
+                    variant="standard"
+                    fullWidth
+                />
+            </Box>
             {isExpanded && (
                 <>
-                    <Box sx={styles.collapsibleContent}>
-                        <TextField
-                            label="ИНН"
-                            variant="standard"
-                            fullWidth
-                        />
-                        <TextField
-                            label="Адрес регистрации"
-                            variant="standard"
-                            fullWidth
-                        />
-                    </Box>
                     <PassportData />
                     <PaymentDetails />
                 </>

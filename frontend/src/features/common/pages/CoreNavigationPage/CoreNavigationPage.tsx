@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { Box } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { useNavigate, Outlet } from "react-router-dom";
-import "./basePage.css";
-import { styles } from "./BasePage.styles.ts";
+import { styles } from "./CoreNavigationPage.styles.ts";
 
 import profile from "../../../../assets/sidebarImages/profile.svg";
 import customers from "../../../../assets/sidebarImages/customers.svg";
@@ -21,12 +20,12 @@ interface IAsideIcon {
 const asideIconsRoutes: IAsideIcon[] = [
     { src: profile, alt: "Profile", history: "profile" },
     { src: home, alt: "Home", history: "main" },
-    { src: documents, alt: "Documents", history: "documents/agreements" },
+    { src: documents, alt: "Documents", history: "documents/agreements/list" },
     { src: customers, alt: "Customers", history: "customers" },
     { src: payments, alt: "Payments", history: "payments" },
 ];
 
-const BasePage: FC = () => {
+const CoreNavigationPage: FC = () => {
     const navigate = useNavigate();
 
     const goOnOtherPage = (history: string) => {
@@ -46,11 +45,12 @@ const BasePage: FC = () => {
                     {/* Main Navigation Icons */}
                     <Box sx={styles.sidebarMainIcons}>
                         {asideIconsRoutes.map((item, index) => (
-                            <img
+                            <Box
                                 key={index}
+                                component="img"
                                 src={item.src}
                                 alt={item.alt}
-                                className="sidebar-icon"
+                                sx={styles.sidebarIcon}
                                 onClick={() => goOnOtherPage(item.history)}
                             />
                         ))}
@@ -58,10 +58,11 @@ const BasePage: FC = () => {
 
                     {/* Exit Button */}
                     <Box sx={styles.exitButton}>
-                        <img
+                        <Box
+                            component="img"
                             src={exit}
                             alt="Exit"
-                            className="sidebar-icon"
+                            sx={styles.sidebarIcon}
                             onClick={() => goOnOtherPage("")}
                         />
                     </Box>
@@ -73,9 +74,13 @@ const BasePage: FC = () => {
                 {/* Header */}
                 <Box component="header" sx={styles.header}>
                     <Box sx={styles.headerControls}>
-                        <input
-                            className="search-input"
+                        <TextField
                             placeholder="Поиск"
+                            variant="standard"
+                            sx={styles.searchInput}
+                            InputProps={{
+                                disableUnderline: true
+                            }}
                         />
                         <Box sx={styles.rightControls}>
                             <Box sx={styles.profileIcon} />
@@ -96,4 +101,4 @@ const BasePage: FC = () => {
     );
 };
 
-export default BasePage;
+export default CoreNavigationPage;

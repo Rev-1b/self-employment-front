@@ -1,11 +1,9 @@
 import { FC } from "react";
-import { styles } from './AgrListPage.styles.ts'
-import { Box, IconButton } from "@mui/material";
-
-import SpreadIcon from '../../../../assets/tableImages/spreadIcon.svg'
+import { styles } from './AgreementListPage.styles.ts'
+import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import CommonTable from "../../components/CommonTable/CommonTable.tsx";
+import CommonTable from "../../../common/components/CommonTable/CommonTable.tsx";
 
 const mockDocuments = [
     {
@@ -60,12 +58,12 @@ const columnNames = [
 ]
 
 
-const AgrListPage: FC = () => {
+const AgreementListPage: FC = () => {
     const navigate = useNavigate()
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Box sx={styles.addButton} onClick={() => navigate('create')}>
+            <Box sx={styles.addButton} onClick={() => navigate('/base/documents/agreements/create')}>
                 +
                 <Box sx={{ borderBottom: '1px solid' }}>Создать</Box>
             </Box>
@@ -79,4 +77,4 @@ const AgrListPage: FC = () => {
     );
 };
 
-export default AgrListPage;
+export default AgreementListPage;
