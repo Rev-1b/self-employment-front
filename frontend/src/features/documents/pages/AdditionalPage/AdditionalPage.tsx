@@ -1,11 +1,10 @@
-import { FC } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { ru } from 'date-fns/locale';
-import AdditionalTable from './components/AdditionalTable.tsx';
-import { styles } from './AdditionalPage.styles.ts';
+import { Outlet } from 'react-router-dom';
+import AdditionalTable from './components/AdditionalTable';
+import AdditionalForm from './components/AdditionalForm';
+import { AdditionalTableData } from './types.ts';
+
 
 const mockAdditional = [
     {
@@ -32,28 +31,46 @@ const mockAdditional = [
 ];
 
 
-const AdditionalLayout: FC = () => {
-    const location = useLocation();
-    const pathSegments = location.pathname.split('/');
-    const currentSection = pathSegments[pathSegments.indexOf('documents') + 1]; // 'additional', 'act', 'invoice', 'check'
-    
-    const showForm = location.pathname.includes(`/${currentSection}/create`) || 
-                    location.pathname.includes(`/${currentSection}/edit`);
+const AdditionalPage: FC = () => {
+    const [tableData, setTableData] = useState<AdditionalTableData[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Загрузка данных таблицы
+    const fetchTableData = async () => {
+        try {
+            setIsLoading(true);
+            setTableData(mockAdditional)
+            // const response = await api.getAdditionalList();
+            // setTableData(response.data);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    // Первичная загрузка данных
+    useEffect(() => {
+        fetchTableData();
+    }, []);
+
+    // Функция для обновления таблицы после изменений
+    const handleDataUpdate = async () => {
+        await fetchTableData();
+    };
+
+    // if (isLoading) {
+    //     return <LoadingSpinner />;
+    // }
+
+    if (tableData.length === 0) {
+        return <AdditionalForm onSuccess={handleDataUpdate} />;
+    }
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ru}>
-            <Box>
-                <AdditionalTable
-                    data={mockAdditional}
-                />
-                {showForm && (
-                    <Box sx={styles.form}>
-                        <Outlet />
-                    </Box>
-                )}
-            </Box>
-        </LocalizationProvider>
+        <Box sx={{ display: 'flex', gap: '24px', flexDirection: 'column' }}>
+            <AdditionalTable data={tableData} />
+            <Outlet context={{ onSuccess: handleDataUpdate }} />
+        </Box>
     );
 };
 
-export default AdditionalLayout; 
+export default AdditionalPage; 

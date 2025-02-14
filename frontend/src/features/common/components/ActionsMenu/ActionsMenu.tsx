@@ -20,7 +20,7 @@ const ActionsMenu: FC<ActionsMenuProps> = ({ recordId }) => {
     };
 
     const handleEdit = () => {
-        navigate(`edit/${recordId}`);
+        navigate(`${recordId}`);
         handleClose();
     };
 

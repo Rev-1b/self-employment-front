@@ -31,7 +31,7 @@ const AdditionalTable: FC<AdditionalTableProps> = ({ data }) => {
     }
 
     const handleCreateClick = () => {
-        navigate('create');
+        navigate('/base/documents/agreements/additional/create');
     };
 
     const handleEditClick = (id: number) => {
@@ -54,7 +54,7 @@ const AdditionalTable: FC<AdditionalTableProps> = ({ data }) => {
                 <Box sx={{ borderBottom: '1px solid' }}>Создать</Box>
             </Box>
             <CommonTable
-                columnNames={[...columnNames, '']}
+                columnNames={columnNames}
                 tableData={tableData}
                 gridTemplateColumns='repeat(4, 1fr) 0.3fr'
             />

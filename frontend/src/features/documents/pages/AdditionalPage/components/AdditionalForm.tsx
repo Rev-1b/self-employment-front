@@ -1,12 +1,23 @@
 import { FC, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useOutletContext } from 'react-router-dom';
 import AdditionalFields from './AdditionalFields.tsx';
 import ButtonCluster from '../../../components/ButtonCluster/ButtonCluster.tsx';
 import { AdditionalFormData } from '../types.ts';
 
-const AdditionalForm: FC = () => {
+// Определяем интерфейс для контекста
+interface AdditionalOutletContext {
+    onSuccess: () => Promise<void>;
+}
+
+interface AdditionalFormProps {
+    onSuccess?: () => Promise<void>;
+}
+
+const AdditionalForm: FC<AdditionalFormProps> = ({ onSuccess }) => {
     const { id } = useParams();
+    const outletContext = useOutletContext<AdditionalOutletContext>();
     const navigate = useNavigate();
+
     const [formData, setFormData] = useState<AdditionalFormData>({
         agreement: '',
         number: '',
@@ -16,7 +27,11 @@ const AdditionalForm: FC = () => {
 
     useEffect(() => {
         if (id) {
-            // Загрузка данных по id
+            const fetchData = async () => {
+                // const response = await api.getAdditionalById(id);
+                // setFormData(response.data);
+            };
+            fetchData();
         }
     }, [id]);
 
@@ -36,6 +51,29 @@ const AdditionalForm: FC = () => {
             ...prev,
             [field]: date,
         }));
+    };
+
+    const handleSuccess = async () => {
+        if (onSuccess) {
+            await onSuccess();
+        } else if (outletContext?.onSuccess) {
+            await outletContext.onSuccess();
+        }
+    };
+
+    const handleSubmit = async () => {
+        try {
+            if (id) {
+                // await api.updateAdditional(id, formData);
+            } else {
+                // await api.createAdditional(formData);
+            }
+            // После успешного сохранения обновляем таблицу
+            await handleSuccess();
+            // Навигация обратно или очистка формы
+        } catch (error) {
+            // Обработка ошибок
+        }
     };
 
     const handleCancel = () => {

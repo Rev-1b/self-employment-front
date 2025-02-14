@@ -16,6 +16,7 @@ import AgreementPage from './features/documents/pages/AgreementPage/AgreementPag
 import AgreementSectionPage from './features/documents/pages/AgreementSectionPage/AgreementSectionPage.tsx';
 import AdditionalPage from './features/documents/pages/AdditionalPage/AdditionalPage.tsx';
 import AdditionalForm from './features/documents/pages/AdditionalPage/components/AdditionalForm.tsx';
+import AdditionalLayout from './features/documents/pages/AdditionalPage/AdditionalLayout.tsx';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Failed to find the root element');
@@ -53,29 +54,45 @@ const router = createBrowserRouter([
       },
       {
         path: 'documents/',
-        element: <DocumentNavPage/>,
+        element: <DocumentNavPage />,
         children: [
           {
             path: 'agreements/',
-            element: <AgreementSectionPage/>,
+            element: <AgreementSectionPage />,
             children: [
               {
                 path: 'create/',
-                element: <AgreementPage/>,
+                element: <AgreementPage />,
               },
               {
                 path: 'additional/',
-                element: <AdditionalPage/>,
+                element: <AdditionalLayout />,
                 children: [
                   {
-                      path: 'create',
-                      element: <AdditionalForm />
+                    index: true,
+                    element: <AdditionalPage />
                   },
                   {
-                      path: ':id',
-                      element: <AdditionalForm />
+                    path: 'create',
+                    element: <AdditionalPage />,
+                    children: [
+                      {
+                        index: true,
+                        element: <AdditionalForm />
+                      }
+                    ]
+                  },
+                  {
+                    path: ':id',
+                    element: <AdditionalPage />,
+                    children: [
+                      {
+                        index: true,
+                        element: <AdditionalForm />
+                      }
+                    ]
                   }
-              ]
+                ]
               }
             ]
           },
